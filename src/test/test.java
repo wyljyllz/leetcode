@@ -67,7 +67,8 @@ public class test {
 //        String s1 = "abc";
 //        String s = stringTest1(s1);
 //        System.out.println(s);
-
+//        boolean[] booleans = new boolean[3];
+//        System.out.println(Arrays.toString(booleans));
 
     }
 
