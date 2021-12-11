@@ -2,6 +2,7 @@ package leetcode.easy.stack;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * @ClassName CQueue
@@ -34,6 +35,37 @@ public class CQueue {
         } else {
             int deleteItem = stack2.pop();
             return deleteItem;
+        }
+    }
+    class MyQueue {
+
+        private Stack<Integer> in = new Stack<>();
+        private Stack<Integer> out = new Stack<>();
+
+        public void push(int x) {
+            in.push(x);
+        }
+
+        public int pop() {
+            in2out();
+            return out.pop();//本身的pop
+        }
+
+        public int peek() {
+            in2out();
+            return out.peek();//返回不弹出
+        }
+
+        private void in2out() { //把第一个栈的元素转到第二个栈
+            if (out.isEmpty()) {//空才转，不然直接弹出
+                while (!in.isEmpty()) {
+                    out.push(in.pop());
+                }
+            }
+        }
+
+        public boolean empty() {
+            return in.isEmpty() && out.isEmpty();
         }
     }
 }

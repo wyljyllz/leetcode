@@ -1,4 +1,4 @@
-package leetcode.easy.array;
+package leetcode.easy.array.twoPointer;
 
 /**
  * @ClassName Exchange

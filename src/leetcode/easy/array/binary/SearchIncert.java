@@ -1,4 +1,4 @@
-package leetcode.easy.array;
+package leetcode.easy.array.binary;
 
 /**
  * @ClassName SearchIncert
@@ -35,4 +35,6 @@ public class SearchIncert {
         }
         return left;
     }
+
+
 }

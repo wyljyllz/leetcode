@@ -20,7 +20,7 @@ public class asteroidCollision {
                     } else if (stack.peek() == -ast) {
                         stack.pop();
                     }
-                    break collsion;//跳出代码块
+                    break collsion;//两种情况，跳出代码块
                 }
                 stack.push(ast);
                 }

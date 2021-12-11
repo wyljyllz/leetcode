@@ -8,7 +8,7 @@ package leetcode.medium.array;
  */
 public class Jump {
     /**
-     * @description:贪心，从前到后
+     * @description:求跳跃次数，贪心，从前到后
      * @author: 卫依伦
      * @date: 2021/11/8
      */
@@ -27,7 +27,7 @@ public class Jump {
         return steps;
     }
     /**
-     * @description:动态规划
+     * @description:求跳跃次数，动态规划
      * @author: 卫依伦
      * @date: 2021/11/8
      */
@@ -41,7 +41,7 @@ public class Jump {
         for (int i = 1; i < nums.length; i++) {
             for (int j = 0; j < i; j++) {
                 if (j + nums[j] >= i) {
-                    dp[i] = Math.min(dp[i], dp[j] + 1);
+                    dp[i] = Math.min(dp[i], dp[j] + 1);//前一个dp加一步
                 }
 
             }
@@ -49,7 +49,7 @@ public class Jump {
         return dp[dp.length - 1];
     }
     /**
-     * @description:贪心，从后到前
+     * @description:求跳跃次数贪心，从后到前
      * @author: 卫依伦
      * @date: 2021/11/8
      */
@@ -57,7 +57,7 @@ public class Jump {
         int position = nums.length - 1; //要找的位置
         int steps = 0;
         while (position != 0) { //是否到了第 0 个位置
-            for (int i = 0; i < position; i++) {
+            for (int i = 0; i < position; i++) { //
                 if (nums[i] >= position - i) {
                     position = i; //更新要找的位置
                     steps++;
@@ -68,4 +68,22 @@ public class Jump {
         return steps;
     }
 
+    /**
+     * @description:判断能否跳到最后一个，贪心
+     * @author: 卫依伦
+     * @date: 2021/12/2
+     */
+    public boolean canJump(int[] nums) {
+        int n = nums.length;
+        int rightmost = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i <= rightmost) {
+                rightmost = Math.max(rightmost, i + nums[i]);
+                if (rightmost >= n - 1) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

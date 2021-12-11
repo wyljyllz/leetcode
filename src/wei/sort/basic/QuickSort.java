@@ -43,7 +43,21 @@ public class QuickSort <T extends Comparable<T>> extends sort<T> {
                 break;
             swap(nums, i, j);
         }
-        swap(nums, l, j);
+        swap(nums, l, j); //把基准数放入正确位置
         return j;
+    }
+    private int partition01(T[] nums, int l, int h) { //切分
+        int i = l;
+        int j = h + 1;
+        T v = nums[l];
+        while (true) {
+            while(less(nums[++i], v) && i < j);
+            while(less(v, nums[--j]) && i < j);
+            if (i >= j)
+                break;
+            swap(nums, i, j);
+        }
+        swap(nums, l, i); //把基准数放入正确位置
+        return i;
     }
 }
